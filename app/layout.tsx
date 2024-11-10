@@ -1,17 +1,14 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
+import { yekan } from "../app/utils/fonts";
+import Navbar from "./components/navbar/Navbar";
+import SignupModal from "./components/modals/SignupModal";
+import LoginModal from "./components/modals/LoginModal";
+import { Providers } from "./providers/Providers";
+import SearchModal from "./components/modals/SearchModal";
+import AddPropertyModal from "./components/modals/AddPropertyModal";
+import Footer from "./components/footer/Footer";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,11 +21,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="fa" dir="rtl" className={yekan.className}>
+      <body className={yekan.className}>
+        <Providers>
+          <Navbar/> 
+            <div className="pt-32">{children}</div>
+            <LoginModal />
+            <SignupModal />
+            <SearchModal />
+            <AddPropertyModal />
+           <Footer/>
+        </Providers>
       </body>
     </html>
   );
