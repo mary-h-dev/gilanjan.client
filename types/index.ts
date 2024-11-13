@@ -42,11 +42,12 @@ export type SearchQuery = {
     checkIn: Date | null;
     checkOut: Date | null;
     guests: number; 
-    bathrooms: number; 
+    // bathrooms: number; 
+    buildingsmeter: number,
+    floorareameters: number,
     bedrooms: number; 
     category: string;
 }
-
 
 
 export interface SearchModalStore {

@@ -49,7 +49,6 @@ const ContactAdminButton: React.FC<ContactAdminButtonProps> = ({ userId }) => {
           src="/mantalking.svg"
           className="w-12 h-12"
         />
-        <p className="text-gray-800 text-base font-light ">مکالمه آنلاین</p>
       </Button>
       <Backdrop
         sx={(theme) => ({ color: "#fff", zIndex: theme.zIndex.drawer + 1 })}

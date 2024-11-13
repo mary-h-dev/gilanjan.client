@@ -285,7 +285,7 @@ export const provincesData = [
 
 
 export const footerLinkOne = {
-  title: 'سفرمن',
+  title: 'گیلان جان',
   links: [
     {
       id: 1,

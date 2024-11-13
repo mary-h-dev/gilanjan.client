@@ -22,7 +22,8 @@ const SearchModal = () => {
   const [numGuests, setNumGuests] = useState<string>("1");
   const [numBedrooms, setNumBedrooms] = useState<string>("0");
   const [country, setCountry] = useState<SelectProvinceValue>();
-  const [numBathrooms, setNumBathrooms] = useState<string>("0");
+  const [buildingsmeter, setBuildingsmeter] = useState<string>("0");
+  const [floorareameters, setFloorareameters] = useState<string>("0");
   const [startDate, setStartDate] = useState<Date | null>(new Date());
   const [endDate, setEndDate] = useState<Date | null>(new Date());
   
@@ -36,7 +37,8 @@ const SearchModal = () => {
       checkOut: endDate,
       guests: parseInt(numGuests),
       bedrooms: parseInt(numBedrooms),
-      bathrooms: parseInt(numBathrooms),
+      buildingsmeter: parseInt(buildingsmeter),
+      floorareameters: parseInt(floorareameters),
       category: "",
     };
   
@@ -133,7 +135,7 @@ const SearchModal = () => {
 
       <div className="space-y-4">
         <div className="space-y-2">
-          <label className="text-gray-400">تعداد مهمان:</label>
+          <label className="text-gray-400">تعداد نفرات:</label>
           <input
             type="number"
             min="1"
@@ -157,13 +159,26 @@ const SearchModal = () => {
         </div>
 
         <div className="space-y-2">
-          <label className="text-gray-400">تعداد سرویس های بهداشتی:</label>
+          <label className="text-gray-400">مساحت بنا:</label>
           <input
             type="number"
             min="0"
-            value={numBathrooms}
-            placeholder="Number of bathrooms..."
-            onChange={(e) => setNumBathrooms(e.target.value)}
+            value={buildingsmeter}
+            placeholder="Buildingsmeter"
+            onChange={(e) => setBuildingsmeter(e.target.value)}
+            className="w-full h-14 px-4 border border-gray-300 rounded-xl"
+          />
+        </div>
+
+        
+        <div className="space-y-2">
+          <label className="text-gray-400">مساحت زیر بنا:</label>
+          <input
+            type="number"
+            min="0"
+            value={floorareameters}
+            placeholder="floorareameters.."
+            onChange={(e) => setFloorareameters(e.target.value)}
             className="w-full h-14 px-4 border border-gray-300 rounded-xl"
           />
         </div>

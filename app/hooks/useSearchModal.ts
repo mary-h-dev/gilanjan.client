@@ -15,7 +15,9 @@ const useSearchModal = create<SearchModalStore>((set) => ({
         checkOut: null,
         guests: 1,
         bedrooms: 0,
-        bathrooms: 0,
+        // bathrooms: 0,
+        buildingsmeter: 0,
+        floorareameters: 0,
         category: ''
     }
 }));

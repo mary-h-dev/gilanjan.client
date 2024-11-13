@@ -10,6 +10,8 @@ import { PropertyType, PropertyListProps } from "../../../types/index";
 import { Skeleton } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 
+
+
 const PropertyList: React.FC<PropertyListProps> = ({
   landlord_id,
   favorites,
@@ -18,7 +20,8 @@ const PropertyList: React.FC<PropertyListProps> = ({
   const searchModal = useSearchModal();
   const country = searchModal.query.country;
   const numGuests = searchModal.query.guests;
-  const numBathrooms = searchModal.query.bathrooms;
+  const numBuildingsmeter = searchModal.query.buildingsmeter;
+  const numFloorareameters = searchModal.query.floorareameters;
   const numBedrooms = searchModal.query.bedrooms;
   const checkinDate = searchModal.query.checkIn;
   const checkoutDate = searchModal.query.checkOut;
@@ -27,13 +30,19 @@ const PropertyList: React.FC<PropertyListProps> = ({
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [itemsToShow, setItemsToShow] = useState(8);
 
+
+
   const showMoreItems = () => {
     setItemsToShow((prev) => prev + 4);
   };
 
+
+
   console.log("searchQuery:", searchModal.query);
   console.log("numBedrooms", numBedrooms);
 
+
+  
   const markFavorite = (id: string, is_favorite: boolean) => {
     const tmpProperties = properties.map((property: PropertyType) => {
       if (property.id == id) {
@@ -75,9 +84,19 @@ const PropertyList: React.FC<PropertyListProps> = ({
         urlQuery += "&numBedrooms=" + numBedrooms;
       }
 
-      if (numBathrooms) {
-        urlQuery += "&numBathrooms=" + numBathrooms;
+      // if (numBathrooms) {
+      //   urlQuery += "&numBathrooms=" + numBathrooms;
+      // }
+
+      if (numBuildingsmeter) {
+        urlQuery += "&numBuildingsmeter=" + numBuildingsmeter;
       }
+
+
+      if (numFloorareameters) {
+        urlQuery += "&numFloorareameters=" + numFloorareameters;
+      }
+
 
       if (category) {
         urlQuery += "&category=" + category;

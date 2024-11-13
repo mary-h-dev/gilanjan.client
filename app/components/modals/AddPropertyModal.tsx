@@ -29,7 +29,9 @@ const AddPropertyModal = () => {
   const [dataDescription, setDataDescription] = useState("");
   const [dataPrice, setDataPrice] = useState("");
   const [dataBedrooms, setDataBedrooms] = useState("");
-  const [dataBathrooms, setDataBathrooms] = useState("");
+  // const [dataBathrooms, setDataBathrooms] = useState("");
+  const [dataBuildingsmeter, setDataBuildingsmeter] = useState("");
+  const [dataFloorareameters, setdataFloorareameters] = useState("");
   const [dataGuests, setDataGuests] = useState("");
   const [dataCountry, setDataCountry] = useState<SelectProvinceValue>();
   const [dataImages, setDataImages] = useState<File[]>([]); // تغییر به آرایه فایل‌ها
@@ -45,9 +47,12 @@ const AddPropertyModal = () => {
   //
   // Set datas
 
+
   const setCategory = (category: string) => {
     setDataCategory(category);
   };
+
+
 
   const setImages = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
@@ -56,8 +61,7 @@ const AddPropertyModal = () => {
     }
   };
 
-  //
-  // Submit
+
 
   const submitForm = async () => {
     console.log("submitForm");
@@ -77,7 +81,9 @@ const AddPropertyModal = () => {
       formData.append("description", dataDescription);
       formData.append("price_per_night", dataPrice);
       formData.append("bedrooms", dataBedrooms);
-      formData.append("bathrooms", dataBathrooms);
+      // formData.append("bathrooms", dataBathrooms);
+      formData.append("buildingsmeter",dataBuildingsmeter);
+      formData.append("floorareameters", dataFloorareameters);
       formData.append("guests", dataGuests);
       formData.append("country", dataCountry.label);
       formData.append("country_code", dataCountry.value);
@@ -229,17 +235,28 @@ const AddPropertyModal = () => {
             </div>
 
             <div className="flex flex-col space-y-2">
-              <label className="text-gray-400">حمام</label>
+              <label className="text-gray-400">بنا</label>
               <input
                 type="number"
-                value={dataBathrooms}
-                onChange={(e) => setDataBathrooms(e.target.value)}
+                value={dataBuildingsmeter}
+                onChange={(e) => setDataBuildingsmeter(e.target.value)}
                 className="w-full p-1 border border-gray-400 rounded-xl"
               />
             </div>
 
             <div className="flex flex-col space-y-2">
-              <label className="text-gray-400">حداکثر ظرفیت برای مهمان</label>
+              <label className="text-gray-400">زیربنا</label>
+              <input
+                type="number"
+                value={dataFloorareameters}
+                onChange={(e) => setdataFloorareameters(e.target.value)}
+                className="w-full p-1 border border-gray-400 rounded-xl"
+              />
+            </div>
+
+
+            <div className="flex flex-col space-y-2">
+              <label className="text-gray-400">تعداد(نفرات)</label>
               <input
                 type="number"
                 value={dataGuests}
@@ -262,10 +279,6 @@ const AddPropertyModal = () => {
           <h2 className="mb-6 text-2xl">مکان جغرافیایی</h2>
 
           <div className="pt-3 pb-6 space-y-4">
-            {/* <SelectCountry 
-                            value={dataCountry}
-                            onChange={(value) => setDataCountry(value as SelectCountryValue)}
-            /> */}
             <SelectProvince
               value={dataCountry}
               onChange={(value) => setDataCountry(value as SelectProvinceValue)}
@@ -285,9 +298,6 @@ const AddPropertyModal = () => {
           <h2 className="mb-4 text-lg text-center text-gray-700">تصاویر</h2>
 
           <div className="pt-3 pb-6 space-y-4">
-            {/* <div className="py-2 px-6 bg-gray-400 text-white rounded-xl">
-              <input type="file" accept="image/*" multiple onChange={setImages} />
-            </div> */}
              <FileInput onChange={setImages} />
 
             {dataImages.length > 0 && (
