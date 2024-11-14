@@ -28,7 +28,7 @@ const Categories: React.FC<CategoriesProps> = ({
             <SwiperSlide key={item.id}>
               <div
                 onClick={() => setCategory(item.id)}
-                className={`h-[60px] w-full flex flex-col items-center justify-center space-y-2 border-b-2 ${
+                className={`h-[60px] w-full flex flex-col items-center justify-center space-y-2 border-b-2  ${
                     dataCategory === item.id ? "border-black" : "border-white"
                 } opacity-60 hover:border-gray-200 hover:opacity-100`}
               >

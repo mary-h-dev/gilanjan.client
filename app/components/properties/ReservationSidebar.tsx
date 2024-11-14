@@ -9,6 +9,9 @@ import { useRouter } from "next/navigation";
 import MainDatePicker from "../forms/MainDatePicker";
 import { CalendarIcon } from "lucide-react";
 import CustomButton from "../forms/CustomButton";
+import { IconButton } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 
 const ReservationSidebar: React.FC<ReservationSidebarProps> = ({
   property,
@@ -65,32 +68,44 @@ const ReservationSidebar: React.FC<ReservationSidebarProps> = ({
   };
 
 
+  const incrementGuests = () => {
+    const guestsNumber = parseInt(guests, 10); 
+    setGuests((guestsNumber + 1).toString());
+  };
+  
+  const decrementGuests = () => {
+    const guestsNumber = parseInt(guests, 10); 
+    if (guestsNumber > 1) {
+      setGuests((guestsNumber - 1).toString()); 
+    }
+  };
+  ;
+
 
   useEffect(() => {
     if (startDate && endDate) {
       const timeDiff = endDate.getTime() - startDate.getTime();
       const dayCount = timeDiff / (1000 * 3600 * 24);
-  
+
       if (dayCount > 0 && property.price_per_night) {
-        const _fee = Math.round(((dayCount * property.price_per_night) / 100) * 5);
+        const _fee = Math.round(
+          ((dayCount * property.price_per_night) / 100) * 5
+        );
         const total = Math.round(dayCount * property.price_per_night + _fee);
-  
+
         setFee(_fee);
         setTotalPrice(total);
         setNights(dayCount);
       } else {
         const _fee = Math.round((property.price_per_night / 100) * 5);
         const total = Math.round(property.price_per_night + _fee);
-  
+
         setFee(_fee);
         setTotalPrice(total);
         setNights(1);
       }
     }
   }, [startDate, endDate]);
-  
-
-
 
   useEffect(() => {
     console.log("State updated:", {
@@ -102,8 +117,6 @@ const ReservationSidebar: React.FC<ReservationSidebarProps> = ({
       guests,
     });
   }, [fee, nights, totalPrice, startDate, endDate, guests]);
-
-
 
   return (
     <aside className="mt-6 p-6 col-span-2 rounded-xl border border-gray-300 shadow-xl rtl">
@@ -129,6 +142,30 @@ const ReservationSidebar: React.FC<ReservationSidebarProps> = ({
 
       <div className="mb-6 p-3 border border-gray-400 rounded-xl">
         <label className="mb-2 block font-bold text-xs">تعداد مهمانان</label>
+        <div className="flex items-center gap-2">
+          <IconButton
+            onClick={decrementGuests}
+            disabled={parseInt(guests, 10) <= 1}
+          >
+            <RemoveIcon />
+          </IconButton>
+          <input
+            type="number"
+            value={guests}
+            readOnly
+            className="w-12 text-center border border-gray-300 rounded-md"
+          />
+          <IconButton
+            onClick={incrementGuests}
+            disabled={parseInt(guests, 10) >= property.guests}
+          >
+            <AddIcon />
+          </IconButton>
+        </div>
+      </div>
+
+      {/* <div className="mb-6 p-3 border border-gray-400 rounded-xl">
+        <label className="mb-2 block font-bold text-xs">تعداد مهمانان</label>
 
         <select
           value={guests}
@@ -141,7 +178,7 @@ const ReservationSidebar: React.FC<ReservationSidebarProps> = ({
             </option>
           ))}
         </select>
-      </div>
+      </div> */}
       <CustomButton label="رزرو" onClick={performBooking} />
       <div className="my-4 flex justify-between items-center">
         <p>

@@ -156,8 +156,9 @@ const AddPropertyModal = () => {
     }
   };
 
-  //
-  //
+
+
+
 
   const content = (
     <>
@@ -175,7 +176,7 @@ const AddPropertyModal = () => {
           <CustomButton label="بعدی" onClick={() => setCurrentStep(2)} />
         </>
       ) : currentStep == 2 ? (
-        <div className="h-[80vh]">
+        <div >
           <h2 className="mb-4 text-lg text-center text-gray-700">
             مکان خود را توضیح دهید
           </h2>
@@ -196,24 +197,24 @@ const AddPropertyModal = () => {
               <textarea
                 value={dataDescription}
                 onChange={(e) => setDataDescription(e.target.value)}
-                className="w-full h-[150px] p-2 border border-gray-400 rounded-xl"
+                className="w-full h-[150px] overflow-y-auto p-2 border border-gray-400 rounded-xl"
               ></textarea>
             </div>
           </div>
 
           <CustomButton
             label="قبل"
-            className="mb-2 bg-red-500 hover:bg-red-800"
             onClick={() => setCurrentStep(1)}
+            className="mb-2"
           />
 
           <CustomButton label="بعد" onClick={() => setCurrentStep(3)} />
         </div>
       ) : currentStep == 3 ? (
-        <div className="h-[80vh]">
+        <div className="max-h-[70vh] overflow-y-auto">
           <h2 className="mb-4 text-lg text-center text-gray-700">جزئیات</h2>
 
-          <div className="pt-3 pb-6 space-y-4">
+          <div className="pt-3 pb-6 space-y-2">
             <div className="flex flex-col space-y-2">
               <label className="text-gray-400">قیمت یک شبانه روز</label>
               <input
@@ -268,8 +269,8 @@ const AddPropertyModal = () => {
 
           <CustomButton
             label="قبل"
-            className="mb-2 bg-red-500 hover:bg-red-800"
             onClick={() => setCurrentStep(2)}
+            className="mb-2"
           />
 
           <CustomButton label="بعد" onClick={() => setCurrentStep(4)} />
@@ -287,14 +288,14 @@ const AddPropertyModal = () => {
 
           <CustomButton
             label="قبل"
-            className="mb-2 bg-red-500 hover:bg-red-800"
             onClick={() => setCurrentStep(3)}
+            className="mb-2"
           />
 
           <CustomButton label="بعد" onClick={() => setCurrentStep(5)} />
         </>
       ) : (
-        <>
+        <div className="max-h-[70vh] overflow-y-auto">
           <h2 className="mb-4 text-lg text-center text-gray-700">تصاویر</h2>
 
           <div className="pt-3 pb-6 space-y-4">
@@ -323,7 +324,7 @@ const AddPropertyModal = () => {
             return (
               <div
                 key={index}
-                className="p-5 mb-4 bg-airbnb text-white rounded-xl opacity-80"
+                className="bg-red-400 p-5 mb-4 text-white rounded-xl opacity-80"
               >
                 {error}
               </div>
@@ -332,8 +333,8 @@ const AddPropertyModal = () => {
 
           <CustomButton
             label="قبل"
-            className="mb-2 bg-red-500 hover:bg-red-800"
             onClick={() => setCurrentStep(4)}
+            className="mb-2"
           />
 
           <CustomButton
@@ -348,7 +349,7 @@ const AddPropertyModal = () => {
             }
             onClick={submitForm}
           />
-        </>
+        </div>
       )}
     </>
   );

@@ -120,7 +120,6 @@ const SearchModal = () => {
         <CustomButton
           label="جزئیات ->"
           onClick={() => searchModal.open("details")}
-          className="bg-red-500 hover:bg-red-800"
         />
       </div>
     </>
@@ -142,7 +141,7 @@ const SearchModal = () => {
             value={numGuests}
             placeholder="Number of guests..."
             onChange={(e) => setNumGuests(e.target.value)}
-            className="w-full h-14 px-4 border border-gray-300 rounded-xl"
+            className="w-full h-10 px-4 border border-gray-300 rounded-xl"
           />
         </div>
 
@@ -154,32 +153,32 @@ const SearchModal = () => {
             value={numBedrooms}
             placeholder="Number of bedrooms..."
             onChange={(e) => setNumBedrooms(e.target.value)}
-            className="w-full h-14 px-4 border border-gray-300 rounded-xl"
+            className="w-full h-10 px-4 border border-gray-300 rounded-xl"
           />
         </div>
 
         <div className="space-y-2">
-          <label className="text-gray-400">مساحت بنا:</label>
+          <label className="text-gray-400">مساحت بنا (متر):</label>
           <input
             type="number"
             min="0"
             value={buildingsmeter}
             placeholder="Buildingsmeter"
             onChange={(e) => setBuildingsmeter(e.target.value)}
-            className="w-full h-14 px-4 border border-gray-300 rounded-xl"
+            className="w-full h-10 px-4 border border-gray-300 rounded-xl"
           />
         </div>
 
         
         <div className="space-y-2">
-          <label className="text-gray-400">مساحت زیر بنا:</label>
+          <label className="text-gray-400">مساحت زیر بنا (متر):</label>
           <input
             type="number"
             min="0"
             value={floorareameters}
             placeholder="floorareameters.."
             onChange={(e) => setFloorareameters(e.target.value)}
-            className="w-full h-14 px-4 border border-gray-300 rounded-xl"
+            className="w-full h-10 px-4 border border-gray-300 rounded-xl"
           />
         </div>
       </div>
@@ -193,7 +192,6 @@ const SearchModal = () => {
         <CustomButton
           label="جستجو"
           onClick={closeAndSearch}
-          className=" bg-red-500 hover:bg-red-800"
         />
       </div>
     </>

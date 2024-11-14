@@ -15,6 +15,8 @@ const SearchFilters = () => {
     }, 2000); // بارگذاری به مدت ۲ ثانیه
   }, []);
 
+
+  
   return (
     <div
       onClick={() => searchModal.open("location")}
@@ -22,7 +24,6 @@ const SearchFilters = () => {
     >
       {isLoading ? (
         <>
-          {/* Skeleton فقط برای علامت سرچ در سایز کوچک */}
           <div className="lg:hidden">
             <Skeleton
               variant="rectangular"
@@ -32,33 +33,38 @@ const SearchFilters = () => {
             />
           </div>
 
+          <div className="hidden lg:block">
+            <div className="flex flex-row-reverse items-center justify-between">
           <Skeleton
             variant="rectangular"
             width={100}
             height={48}
-            className="hidden lg:block mx-2 rounded-full"
+            className="mx-2 rounded-full"
           />
 
           <Skeleton
             variant="rectangular"
             width={100}
             height={48}
-            className="hidden lg:block mx-2 rounded-full"
+            className="mx-2 rounded-full"
           />
 
           <Skeleton
             variant="rectangular"
             width={100}
             height={48}
-            className="hidden lg:block mx-2 rounded-full"
+            className="mx-2 rounded-full"
           />
 
           <Skeleton
             variant="rectangular"
             width={250}
             height={48}
-            className="hidden lg:block mx-2 rounded-full"
+            className="mx-2 rounded-full"
           />
+
+            </div>
+          </div>
         </>
       ) : (
         <>
@@ -66,7 +72,7 @@ const SearchFilters = () => {
             <div className="flex flex-row-reverse items-center justify-between">
               <div className="cursor-pointer h-[48px] lg:h-[64px] px-8 flex flex-col justify-center rounded-full hover:bg-gray-100">
                 <p className="text-xs font-semibold text-gray-400">مهمانان</p>
-                <p className="text-sm text-gray-300">تعداد مهمانان</p>
+                <p className="text-sm text-gray-300">تعداد نفرات</p>
               </div>
               <Divider
                 orientation="vertical"

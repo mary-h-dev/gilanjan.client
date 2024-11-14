@@ -37,7 +37,8 @@ const Categories = () => {
       checkOut: searchModal.query.checkOut,
       guests: searchModal.query.guests,
       bedrooms: searchModal.query.bedrooms,
-      bathrooms: searchModal.query.bathrooms,
+      buildingsmeter: searchModal.query.buildingsmeter,
+      floorareameters: searchModal.query.floorareameters,
       category: _category,
     };
 
@@ -45,7 +46,7 @@ const Categories = () => {
   };
 
   return (
-    <div className="pt-3 pb-6 px-6">
+    <div className="pt-3 pb-6 px-6 ">
       <Swiper
         slidesPerView={10}
         spaceBetween={0}
@@ -53,8 +54,8 @@ const Categories = () => {
         modules={[Navigation]}
         className="cursor-pointer"
         breakpoints={{
-          300: {
-            slidesPerView: 4,
+          330: {
+            slidesPerView: 3,
             spaceBetween: 3,
           },
           640: {

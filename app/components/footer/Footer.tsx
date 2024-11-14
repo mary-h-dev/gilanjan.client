@@ -14,7 +14,7 @@ import ContactUs from "./ContactUs"
 
 const Footer = () => {
     return (
-        <footer className="w-full z-50 fixed bottom-0 start-0 md:static bg-primary-two py-4 md:py-10 md:shadow-footerShadow">
+        <footer className="w-full z-40 fixed bottom-0 start-0 md:static bg-primary-two py-4 md:py-10 md:shadow-footerShadow">
             <section className="container">
                 <div className="hidden md:block">
 

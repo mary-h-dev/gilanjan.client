@@ -148,6 +148,23 @@
   box-shadow: none;
 }
 
-.custom-calendar {
-  
+
+
+.rmdp-week-day {
+  color: #35A299 !important;
+}
+
+
+.rmdp-day.rmdp-selected span{
+  background-color: #35A299 !important;
+  color: white !important;
+}
+
+
+.rmdp-arrow {
+  border-color: #35A299  !important;
+}
+
+.rmdp-calendar :focus{
+  outline-color: #35A299 !important;
 }
