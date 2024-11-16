@@ -3,23 +3,24 @@ import Categories from "./components/Categories";
 import ContactAdminButton from "./components/ContactAdminButton";
 import PropertyList from "./components/properties/PropertyList";
 import { getUserId } from "@/app/lib/actions";
-import { searchParams } from '@/types'
 import BlogList from "./components/blog/BlogList";
+import FoodList from "./components/food/FoodList";
 
 
 
 
 
-const Home = async ({ searchParams }: { searchParams: searchParams }) => {
+const Home = async () => {
   const userId = await getUserId();
 
 
   return (
     <main className="w-full mx-auto bg-grayMedium">
       <Categories />
-      <PropertyList />
-      <Banner/>
-      <BlogList/>
+       {/* <PropertyList /> */}
+     <Banner/>
+      <BlogList/> 
+      <FoodList/>
       <ContactAdminButton userId={userId} />
     </main>
   );

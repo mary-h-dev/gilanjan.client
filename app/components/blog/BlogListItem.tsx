@@ -129,6 +129,8 @@ export function ExpandableCardDemo({ blogs }: ExpandableCardDemoProps) {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [active]);
 
+
+  
   useOutsideClick(ref, () => setActive(null));
 
   return (

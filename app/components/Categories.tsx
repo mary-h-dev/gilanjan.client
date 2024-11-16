@@ -18,14 +18,15 @@ const Categories = () => {
   const [isLoading, setIsLoading] = useState(true);
 
 
+
   useEffect(() => {
-    // شبیه‌سازی بارگذاری داده‌ها
     setTimeout(() => {
       setIsLoading(false);
-    }, 2000); // دو ثانیه تأخیر برای بارگذاری
+    }, 2000);
   }, []);
 
     
+
 
 
   const _setCategory = (_category: string) => {
@@ -68,6 +69,7 @@ const Categories = () => {
           },
         }}
       >
+
         {categoriesData.map((item) => (
           <SwiperSlide key={item.id}>
             <div

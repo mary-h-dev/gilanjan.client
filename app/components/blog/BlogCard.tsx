@@ -4,8 +4,6 @@ import { BlurImage } from "../../../components/ui/apple-cards-carousel";
 
 
 
-
-
 export type SectionType = {
     id: number;
     title: string;
@@ -14,6 +12,8 @@ export type SectionType = {
     order: number;
   };
   
+
+
   export type BlogType = {
     id: string;
     title: string;
@@ -32,12 +32,13 @@ export type SectionType = {
   };
 
 
-
 type CardProps = {
   blog: BlogType;
   index: number;
   layout?: boolean;
 };
+
+
 
 export const BlogCard = ({ blog, index, layout = false }: CardProps) => {
   const router = useRouter();

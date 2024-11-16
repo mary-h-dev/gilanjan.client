@@ -1,6 +1,4 @@
 import React from "react";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import apiService from "@/app/services/apiService";
 import BlogListDetail from "@/app/components/blog/BlogListDetail";
 

@@ -7,6 +7,9 @@ import { Carousel } from "@/components/ui/apple-cards-carousel";
 import { BlogCard } from "./BlogCard";
 import WithLine from "@/app/shared/WithLine";
 
+
+
+
 export type SectionType = {
   id: number;
   title: string;
