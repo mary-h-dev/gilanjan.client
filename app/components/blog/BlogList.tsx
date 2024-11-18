@@ -6,6 +6,7 @@ import { Skeleton } from "@mui/material";
 import { Carousel } from "@/components/ui/apple-cards-carousel";
 import { BlogCard } from "./BlogCard";
 import WithLine from "@/app/shared/WithLine";
+import ImgAndTitle from "@/app/shared/ImgAndTitle";
 
 
 
@@ -61,7 +62,7 @@ const BlogList: React.FC = () => {
 
   return (
     <div className="w-full h-full bg-[#f1f1f1] py-12 px-2">
-      <WithLine title="مجلات گیلان جان" />
+    <ImgAndTitle title="مجلات گیلان جان" imageSrc="/heart.png"/>
       {isLoading ? (
     <div className="w-full mb-2 mt-2 grid grid-cols-1 md:grid-cols-4">
           {[...Array(4)].map((_, index) => (

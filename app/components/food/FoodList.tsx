@@ -2,11 +2,14 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import apiService from "@/app/services/apiService";
-import WithLine from "@/app/shared/WithLine";
 import { FoodCard } from "./FoodCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import "swiper/css";
+import ImgAndTitle from "@/app/shared/ImgAndTitle";
+import { Skeleton } from "@mui/material"; 
+
+
 
 export type SectionFoodType = {
   id: number;
@@ -67,50 +70,63 @@ const FoodList: React.FC = () => {
 
   return (
     <div className="bg-grayMedium">
-    <WithLine title="مجلات گیلان جان" />
-    <BackgroundBeamsWithCollision>
-        {isLoading ? (
-          <div className="flex justify-center items-center">
-            <h1>در حال بارگذاری...</h1>
-          </div>
-        ) : (
-          <Swiper
-            slidesPerView={5}
-            spaceBetween={10}
-            grabCursor={true}
-            className="cursor-pointer"
-            breakpoints={{
-              350: {
-                slidesPerView: 2,
-                spaceBetween: 5,
-              },
-              640: {
-                slidesPerView: 3,
-                spaceBetween: 7,
-              },
-              820: {
-                slidesPerView: 4,
-                spaceBetween: 8,
-              },
-              1000: {
-                slidesPerView: 5,
-                spaceBetween: 8,
-              },
-            }}
-          >
-            {foods.map((food, index) => (
-              <SwiperSlide key={food.id}>
-                <div className="w-full h-full flex items-center justify-center">
-                  <FoodCard
-                    food={food}
-                    bgColor={backgroundColors[index % backgroundColors.length]}
-                  />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        )}
-    </BackgroundBeamsWithCollision>
+      <ImgAndTitle title="غذاهای محلی گیلان" imageSrc="/heart.png" />
+      <BackgroundBeamsWithCollision>
+        <Swiper
+          slidesPerView={5}
+          spaceBetween={10}
+          grabCursor={true}
+          className="cursor-pointer"
+          breakpoints={{
+            350: {
+              slidesPerView: 2,
+              spaceBetween: 5,
+            },
+            640: {
+              slidesPerView: 3,
+              spaceBetween: 7,
+            },
+            820: {
+              slidesPerView: 4,
+              spaceBetween: 8,
+            },
+            1000: {
+              slidesPerView: 6,
+              spaceBetween: 8,
+            },
+          }}
+        >
+          {isLoading
+            ? 
+              Array.from({ length: 6 }).map((_, index) => (
+                <SwiperSlide key={index}>
+                  <div className="w-full h-full flex items-center justify-center">
+                    <div className="w-32 h-32">
+                      <Skeleton
+                        variant="circular"
+                        width="100%"
+                        height="100%"
+                        animation="wave"
+                      />
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))
+            : 
+              foods.map((food, index) => (
+                <SwiperSlide key={food.id}>
+                  <div className="w-full h-full flex items-center justify-center">
+                    <FoodCard
+                      food={food}
+                      bgColor={
+                        backgroundColors[index % backgroundColors.length]
+                      }
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+        </Swiper>
+      </BackgroundBeamsWithCollision>
     </div>
   );
 };

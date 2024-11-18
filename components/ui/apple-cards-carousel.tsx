@@ -147,14 +147,14 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
         </div>
         <div className="flex justify-center gap-2 mr-10">
           <button
-            className="relative z-30 h-10 w-10 rounded-full bg-gray-300 flex items-center justify-center disabled:opacity-50"
+            className="relative z-30 h-7 w-7 rounded-full bg-gray-300 flex items-center justify-center disabled:opacity-50"
             onClick={scrollLeft}
             disabled={!canScrollLeft}
           >
             <IconArrowNarrowLeft className="h-6 w-6 text-black" />
           </button>
           <button
-            className="relative z-30 h-10 w-10 rounded-full bg-gray-300 flex items-center justify-center disabled:opacity-50"
+            className="relative z-30 h-7 w-7 rounded-full bg-gray-300 flex items-center justify-center disabled:opacity-50"
             onClick={scrollRight}
             disabled={!canScrollRight}
           >
@@ -232,10 +232,10 @@ export const Card = ({
               className="max-w-5xl mx-auto bg-white dark:bg-neutral-900 h-fit  z-[60] my-10 p-4 md:p-10 rounded-3xl font-sans relative"
             >
               <button
-                className="sticky top-4 h-8 w-8 right-0 ml-auto bg-black dark:bg-white rounded-full flex items-center justify-center"
+                className="sticky top-4 h-7 w-7 right-0 ml-auto bg-black dark:bg-white rounded-full flex items-center justify-center"
                 onClick={handleClose}
               >
-                <IconX className="h-6 w-6 text-neutral-100 dark:text-neutral-900" />
+                <IconX className="h-8 w-8 text-neutral-100 dark:text-neutral-900" />
               </button>
               <motion.p
                 layoutId={layout ? `category-${card.title}` : undefined}

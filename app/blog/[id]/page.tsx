@@ -3,31 +3,6 @@ import apiService from "@/app/services/apiService";
 import BlogListDetail from "@/app/components/blog/BlogListDetail";
 
 
-export type SectionType = {
-  id: number;
-  title: string;
-  image: string;
-  description: string;
-  order: number;
-};
-
-
-export type BlogType = {
-  id: string;
-  title: string;
-  slug: string;
-  category: string;
-  author: string;
-  meta_description: string;
-  page_meta: string;
-  canonical: string;
-  is_active: boolean;
-  is_validated: boolean;
-  tags: string[];
-  created_date: string;
-  updated_date: string;
-  sections: SectionType[];
-};
 
 const BlogDetail = async ({ params }: { params: { id: string } }) => {
   const blog = await apiService.get(`/blog/api/v1/bg/detail/${params.id}`);
